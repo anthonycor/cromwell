@@ -187,7 +187,10 @@ trait StandardAsyncExecutionActor extends AsyncBackendJobExecutionActor with Sta
         |chmod 777 $$tmpDir
         |export _JAVA_OPTIONS=-Djava.io.tmpdir=$$tmpDir
         |export TMPDIR=$$tmpDir
-        |$commandScriptPreamble
+        |(
+        |cd $cwd
+        |COMMAND_SCRIPT_PREAMBLE
+        |)
         |(
         |cd $cwd
         |INSTANTIATED_COMMAND
@@ -197,9 +200,15 @@ trait StandardAsyncExecutionActor extends AsyncBackendJobExecutionActor with Sta
         |cd $cwd
         |${globManipulations(globFiles)}
         |)
+        |(
+        |cd $cwd
         |SCRIPT_EPILOGUE
+        |)
         |mv $rcTmpPath $rcPath
-        |""".stripMargin.replace("INSTANTIATED_COMMAND", instantiatedCommand).replace("SCRIPT_EPILOGUE", scriptEpilogue)
+        |""".stripMargin
+      .replace("COMMAND_SCRIPT_PREAMBLE", commandScriptPreamble)
+      .replace("INSTANTIATED_COMMAND", instantiatedCommand)
+      .replace("SCRIPT_EPILOGUE", scriptEpilogue)
   }
 
   /** The instantiated command. */
