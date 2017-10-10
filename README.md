@@ -1119,8 +1119,8 @@ The backend is specified via the actor factory `ConfigBackendLifecycleActorFacto
 backend {
   providers {
     SGE {
+      actor-factory = "cromwell.backend.impl.sfs.config.ConfigBackendLifecycleActorFactory"
       config {
-        actor-factory = "cromwell.backend.impl.sfs.config.ConfigBackendLifecycleActorFactory"
         # ... other configuration
       }
     }
@@ -1173,6 +1173,7 @@ The command used to submit the job is specified under the configuration key `bac
 backend {
   providers {
     SGE {
+      actor-factory = "cromwell.backend.impl.sfs.config.ConfigBackendLifecycleActorFactory"
       config {
         # ... other configuration
         submit = """
@@ -1201,6 +1202,7 @@ If the backend supports docker, another optional configuration key `backend.prov
 backend {
   providers {
     SGE {
+      actor-factory = "cromwell.backend.impl.sfs.config.ConfigBackendLifecycleActorFactory"
       config {
         # ... other configuration
         submit-docker = """
@@ -1236,6 +1238,7 @@ For example, if the backend specifies the configuration for `backend.providers.<
 backend {
   providers {
     SGE {
+      actor-factory = "cromwell.backend.impl.sfs.config.ConfigBackendLifecycleActorFactory"
       config {
         # ... other configuration
         runtime-attributes = "Float memory_mb"
@@ -1262,6 +1265,7 @@ Other runtime attributes may be defined by specifying them in under the runtime 
 backend {
   providers {
     SGE {
+      actor-factory = "cromwell.backend.impl.sfs.config.ConfigBackendLifecycleActorFactory"
       config {
         # ... other configuration
         runtime-attributes = """
@@ -1280,6 +1284,7 @@ These variables will then be passed from the WDL into the submit configuration. 
 backend {
   providers {
     SGE {
+      actor-factory = "cromwell.backend.impl.sfs.config.ConfigBackendLifecycleActorFactory"
       config {
         # ... other configuration
         runtime-attributes = """
@@ -1298,6 +1303,7 @@ Optional values may also be used by appending `?` to the type:
 backend {
   providers {
     SGE {
+      actor-factory = "cromwell.backend.impl.sfs.config.ConfigBackendLifecycleActorFactory"
       config {
         # ... other configuration
         runtime-attributes = """
@@ -1322,6 +1328,7 @@ When `backend.providers.<backend>.config.run-in-background` is `false`, the defa
 backend {
   providers {
     SGE {
+      actor-factory = "cromwell.backend.impl.sfs.config.ConfigBackendLifecycleActorFactory"
       config {
         # ... other configuration
         job-id-regex = "(\\d+)"
@@ -1346,8 +1353,8 @@ The backend is specified via the actor factory `ConfigBackendLifecycleActorFacto
 backend {
   providers {
     HtCondor {
+      actor-factory = "cromwell.backend.impl.sfs.config.ConfigBackendLifecycleActorFactory"
       config {
-        actor-factory = "cromwell.backend.impl.sfs.config.ConfigBackendLifecycleActorFactory"
         # ... other configuration
       }
     }
@@ -1437,6 +1444,7 @@ Optional values are defined with the prefix `?` attached to the type.
 backend {
   providers {
     HtCondor {
+      actor-factory = "cromwell.backend.impl.sfs.config.ConfigBackendLifecycleActorFactory"
       config {
         # ... other configuration
 	    runtime-attributes = """
